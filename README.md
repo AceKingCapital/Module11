@@ -4,6 +4,8 @@
 
 ## HvPlot to visualize the data for May 2020:
 ![HVPlot 1](https://user-images.githubusercontent.com/118318397/234135978-a4c7cd64-0820-43ab-82e9-6c3c6a340140.JPG)
+The total search traffic for May 2020 is 38181
+The monthly median search traffic across all months is 35712.5
 
 Question: Did the Google search traffic increase during the month that MercadoLibre released its financial results?
 
@@ -24,7 +26,7 @@ Average traffic by the week of the year:
 
 Question: Does the search traffic tend to increase during the winter holiday period (weeks 40 through 52)?
 
-Answer: The traffic tends to increase during the winter holiday period. However, it initially dips in weeks 40 and 41 before increasing.
+Answer: The traffic tends to increase during the winter holiday period. However, it initially dips in weeks 40 and 41 before increasing. 
 
 ## HvPlot to visualize the closing price of the df_mercado_stock DataFrame:
 ![closingprices](https://user-images.githubusercontent.com/118318397/234136552-41c947ab-e714-4fca-a61e-cf63b2128227.JPG)
@@ -45,6 +47,10 @@ Question: Does a predictable relationship exist between the lagged search traffi
 
 Answer: There does not appear to be a predictable relationship between the lagged search traffic and the stock volatility or between the lagged search traffic and the stock price returns.
 ![ForecastingStockprices](https://user-images.githubusercontent.com/118318397/234137638-0c93a78d-8f52-48fa-b201-b6f65b613b8e.JPG)
+
+The popularity is greatest around the mid-night time of the day. Popularity increases steadily after 8:30 pm till mid-night and then starts to decrease. Tuesdays have the most search traffic, Revenue is at peak on Wednesdays of the week, and October is the lowest month for search traffic in a calendar year.
+
+
 
 **use hvPlot to visualize the yhat, yhat_lower, and yhat_upper columns over the last 2000 hours
 ![yhatHVPlot](https://user-images.githubusercontent.com/118318397/234137276-7e5f7a8a-f4d9-4816-9caa-50a1ff2d43bb.JPG)
