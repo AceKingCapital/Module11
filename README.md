@@ -1,59 +1,121 @@
-# Module11: Forecasting net Profit
+## Unit 19 Homework: Cryptocurrency Wallet
 
-### Analysing Mercado Libre's financial & user data in clever ways to help the company grow more than 200 million users.
+![An image shows a wallet with bitcoin.](Images/19-4-challenge-image.png)
 
-## HvPlot to visualize the data for May 2020:
-![HVPlot 1](https://user-images.githubusercontent.com/118318397/234135978-a4c7cd64-0820-43ab-82e9-6c3c6a340140.JPG)
-The total search traffic for May 2020 is 38181
-The monthly median search traffic across all months is 35712.5
+### Background
 
-Question: Did the Google search traffic increase during the month that MercadoLibre released its financial results?
+You work at a startup that is building a new and disruptive platform called KryptoJobs2Go. KryptoJobs2Go is an application that its customers can use to find fintech professionals from among a list of candidates, hire them, and pay them. As KryptoJobs2Go’s lead developer, you have been tasked with integrating the Ethereum blockchain network into the application in order to enable your customers to instantly pay the fintech professionals whom they hire with cryptocurrency.
 
-Answer: Yes, the Google search traffic increased from an overall monthly median value of 51 to 54 in May 2020 - the month that MercadoLibre released its financial results.
+In this Challenge, you will complete the code that enables your customers to send cryptocurrency payments to fintech professionals. To develop the code and test it out, you will assume the perspective of a KryptoJobs2Go customer who is using the application to find a fintech professional and pay them for their work.
 
-## Average traffic by the day of week:
-![AverageTraffic](https://user-images.githubusercontent.com/118318397/234136225-236b9915-aab5-44ee-8c84-19daa4a34a6f.JPG)
+### What You're Creating
 
-## HvPlot to visualize the hour of the day and day of week search traffic as a heatmap:
-![Heatmap](https://user-images.githubusercontent.com/118318397/234136263-f1664bae-d56e-4b1a-98b4-79f43882ef7e.JPG)
+To complete this Challenge, you will use two Python files, both of which are contained in the starter folder.
 
-Question: Does any day-of-week effect that you observe concentrate in just a few hours of that day?
+The first file that you will use is called `krypto_jobs.py`. It contains the code associated with the web interface of your application. The code included in this file is compatible with the Streamlit library. You will write all of your code for this Challenge in this file.
 
-Answer: Based on the heatmap, it appears that search traffic is highest during 11pm to midnight on weekends and from 11pm to 1am on all weekdays except Friday.
+The second file that you will use is called `crypto_wallet.py`. This file contains the Ethereum transaction functions that you have created throughout this module’s lessons. By using import statements, you will integrate the `crypto_wallet.py` Python script into the KryptoJobs2Go interface program that is found in the `krypto_jobs.py` file.
 
-Average traffic by the week of the year:
-![avgtraffic](https://user-images.githubusercontent.com/118318397/234136421-a62f5695-8112-481d-9c1d-ab67d07ff085.JPG)
+Integrating these two files will allow you to automate the tasks associated with generating a digital wallet, accessing Ethereum account balances, and signing and sending transactions via a personal Ethereum blockchain called Ganache.
 
-Question: Does the search traffic tend to increase during the winter holiday period (weeks 40 through 52)?
+Specifically, you will assume the perspective of a KryptoJobs2Go customer in order to do the following:
 
-Answer: The traffic tends to increase during the winter holiday period. However, it initially dips in weeks 40 and 41 before increasing. 
+* Generate a new Ethereum account instance by using the mnemonic seed phrase provided by Ganache.
 
-## HvPlot to visualize the closing price of the df_mercado_stock DataFrame:
-![closingprices](https://user-images.githubusercontent.com/118318397/234136552-41c947ab-e714-4fca-a61e-cf63b2128227.JPG)
+* Fetch and display the account balance associated with your Ethereum account address.
 
-## HvPlot to visualize the close and search trends data for first half of 2020:
-![VariableClose](https://user-images.githubusercontent.com/118318397/234136965-fe2dee90-157e-4a67-9809-f963fb92afb5.JPG)
-![Variable SearchTrends](https://user-images.githubusercontent.com/118318397/234136992-2490aab0-af5d-4caa-ba28-d021969590be.JPG)
+* Calculate the total value of an Ethereum transaction, including the gas estimate, that pays a KryptoJobs2Go candidate for their work.
 
+* Digitally sign a transaction that pays a KryptoJobs2Go candidate, and send this transaction to the Ganache blockchain.
 
-Question: Do both time series indicate a common trend that’s consistent with this narrative?
+* Review the transaction hash code associated with the validated blockchain transaction.
 
-Answer: Subsequent to COVID-19 being declared a pandemic by WHO in March 2020, the stock price and search declined dramatically. Both, the stock price and search, gradually picked up around April 2020 and then consistently went up.
+Once you receive the transaction’s hash code, you will navigate to the Transactions section of Ganache to review the blockchain transaction details. To confirm that you have successfully created the transaction, you will save screenshots to the README.md file of your GitHub repository for this Challenge assignment.
 
-## HvPlot to visualize the stock volatility:
-![StockVolitality](https://user-images.githubusercontent.com/118318397/234137095-d20bbf3f-e1b5-4267-a7a4-3073182ac376.JPG)
+### Instructions
 
-Question: Does a predictable relationship exist between the lagged search traffic and the stock volatility or between the lagged search traffic and the stock price returns?
+The steps for this challenge are broken out into the following sections:
 
-Answer: There does not appear to be a predictable relationship between the lagged search traffic and the stock volatility or between the lagged search traffic and the stock price returns.
-![ForecastingStockprices](https://user-images.githubusercontent.com/118318397/234137638-0c93a78d-8f52-48fa-b201-b6f65b613b8e.JPG)
+* Import Ethereum Transaction Functions into the KryptoJobs2Go Application
+* Sign and Execute a Payment Transaction
+* Inspect the Transaction on Ganache
 
-The popularity is greatest around the mid-night time of the day. Popularity increases steadily after 8:30 pm till mid-night and then starts to decrease. Tuesdays have the most search traffic, Revenue is at peak on Wednesdays of the week, and October is the lowest month for search traffic in a calendar year.
+#### Step 1: Import Ethereum Transaction Functions into the KryptoJobs2Go Application
 
+In this section, you'll import several functions from the `crypto_wallet.py` script into the file `krypto_jobs.py`, which contains code for KryptoJobs2Go’s customer interface, in order to add wallet operations to the application. For this section, you will assume the perspective of a KryptoJobs2Go customer (i.e., you’ll provide your Ethereum wallet and account information to the application).
 
+Complete the following steps:
 
-**use hvPlot to visualize the yhat, yhat_lower, and yhat_upper columns over the last 2000 hours
-![yhatHVPlot](https://user-images.githubusercontent.com/118318397/234137276-7e5f7a8a-f4d9-4816-9caa-50a1ff2d43bb.JPG)
+1. Review the code contained in the `crypto_wallet.py` script file. Note that the Ethereum transaction functions that you have built throughout this module&mdash;including `wallet`, `wallet.derive_acount`, `get_balance`, `fromWei`, `estimateGas`, `sendRawTransaction`, and others&mdash;have now been incorporated into Python functions that allow you to automate the process of accessing them.
 
-## hvPlot to visualize the daily sales figure:
-![dailysalesfigures](https://user-images.githubusercontent.com/118318397/234137376-4fef4254-5f78-4f5a-8806-9477decf3ac8.JPG)
+2. Add your mnemonic seed phrase (provided by Ganache) to the starter code’s `SAMPLE.env` file. When the information has been added, rename the file `.env`.
+
+3. Open the `krypto_jobs.py` file. Toward the top of the file, after the import statements that are provided, import the following functions from the `crypto_wallet.py` file:
+
+    * `generate_account`
+
+    * `get_balance`
+
+    * `send_transaction`
+
+4. Within the Streamlit sidebar section of code, create a variable named `account`. Set this variable equal to a call on the `generate_account` function. This function will create the KryptoJobs2Go customer’s (in this case, your) HD wallet and Ethereum account.
+
+5. Within this same section of the `krypto_jobs.py` file, define a new `st.sidebar.write` function that will display the balance of the customer’s account. Inside this function, call the `get_balance` function and pass it your Ethereum `account.address`.
+
+#### Step 2: Sign and Execute a Payment Transaction
+
+Next, you'll write the code that will calculate a fintech professional’s wage, in ether, based on the worker’s hourly rate and the number of hours that they work for a customer. (The fintech professionals’ hourly rates are provided in the `candidate_database` that is found in `krypto_jobs.py`.)
+
+You will then write code that uses the calculated wage value to send a transaction that pays the worker. This code should allow the KryptoJobs2Go customer to authorize the transaction with their digital signature. For the purpose of testing out this application, you will use your own Ethereum account information as the customer account information.
+
+To accomplish all of this, complete the following steps:
+
+1. KryptoJobs2Go customers will select a fintech professional from the application interface’s drop-down menu, and then input the amount of time for which they’ll hire the worker. Code the application so that once a customer completes these steps, the application will calculate the amount that the worker will be paid in ether. To do so, complete the following steps:
+
+    * Write the equation that calculates the candidate’s wage. This equation should assess the candidate’s hourly rate from the candidate database (`candidate_database[person][3]`) and then multiply this hourly rate by the value of the `hours` variable. Save this calculation’s output as a variable named `wage`.
+
+    * Write the `wage` variable to the Streamlit sidebar by using `st.sidebar.write`.
+
+2. Now that the application can calculate a candidate’s wage, write the code that will allow a customer (you, in this case) to send an Ethereum blockchain transaction that pays the hired candidate. To accomplish this, locate the code that reads `if st.sidebar.button("Send Transaction")`. You’ll need to add logic to this `if` statement that sends the appropriate information to the `send_transaction` function (which you imported from the `crypto_wallet` script file). Inside the `if` statement, add the following functionality:
+
+    * Call the `send_transaction` function and pass it three parameters:
+
+    * Your Ethereum `account` information. (Remember that this `account` instance was created when the `generate_account` function was called.) From the `account` instance, the application will be able to access the `account.address` information that is needed to populate the `from` data attribute in the raw transaction.
+
+    * The `candidate_address` (which will be created and identified in the sidebar when a customer selects a candidate). This will populate the `to` data attribute in the raw transaction.
+
+    * The `wage` value. This will be passed to the `toWei` function to determine the wei value of the payment in the raw transaction.
+
+    * Save the transaction hash that the `send_transaction` function returns as a variable named `transaction_hash`, and have it display on the application’s web interface.
+
+#### Step 3: Inspect the Transaction
+
+Now it's time to put it all together and test the KryptoJobs2Go application with your newly integrated Ethereum wallet. You will send a test transaction by using the application’s web interface, and then look up the resulting transaction in Ganache. To do so, complete the following steps:
+
+1. From your terminal, navigate to the project folder that contains your `.env` file and the `krypto_jobs.py` and `crypto_wallet.py` files. Be sure to activate your Conda `dev` environment if it is not already active.
+
+2. To launch the Streamlit application, type `streamlit run krypto_jobs.py`.
+
+3. On the resulting webpage, select a candidate that you would like to hire from the appropriate drop-down menu. Then, enter the number of hours that you would like to hire them for. (Remember, you do not have a lot of ether in your account, so you cannot hire them for long!)
+
+4. Click the Send Transaction button to sign and send the transaction with your Ethereum account information. Navigate to the Transactions section of Ganache.
+
+    * Take a screenshot of your address balance and history on Ganache. Save this screenshot to the README.md file of your GitHub repository for this Challenge assignment.
+
+    * Take a screenshot of the transaction details on Ganache. Save this screenshot to the README.md file of your GitHub repository for this Challenge assignment.
+
+5. Return to the original transaction, and click the transaction’s To address.
+
+* Take a screenshot of the recipient’s address balance and history from your Ganache application. Save this screenshot to the README.md file of your GitHub repository for this Challenge assignment.
+
+---
+
+## Submission
+
+* Upload the files for this assignment to your GitHub repository.
+
+* Submit the link to your GitHub repo on Bootcamp Spot.
+
+---
+
+© 2021 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
